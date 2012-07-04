@@ -1,3 +1,25 @@
+/*
+ * jQuery BetaCode Converter: jQuery plugin to convert BetaCode to Unicode
+ *
+ * © 2012 Sean Redmond.
+ *
+ * This file is part of jQuery BetaCode Converter.
+ * 
+ * jQuery BetaCode Converter is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or (at your
+ * option) any later version.
+ * 
+ * jQuery BetaCode Converter is distributed in the hope that it will be 
+ * useful, but WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General 
+ * Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along
+ * with jQuery BetaCode Converter.  If not, see 
+ * <http://www.gnu.org/licenses/>.
+ */
+
 (function ($) {
 
 	$.fn.betacode2utf8 = function (options) {
