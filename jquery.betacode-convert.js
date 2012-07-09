@@ -30,13 +30,15 @@
     RE_IOTA      = 5,
     RE_DIAERESIS = 6,
     RE_BAREQUOTE = 7,
+    RE_PASSTHRU  = 8,
     regexes = [
-      [/^(\*)?([bgdzqklmncptfxyvs;\u0027])/i, [RE_CAP, RE_LETTER]],
+      [/^(\*)?([bgdzqklmncptfxyvs;\u0027\-\_])/i, [RE_CAP, RE_LETTER]],
       [/^(\*)?(r)([\)\(])?/i, [RE_CAP, RE_LETTER, RE_BREATHING]],
       [/^(\*)?([\)\(])?([aehiouw])([\)\(])?(\+)?([\/\\=])?(\|)?(\+)?/i,
         [RE_CAP, RE_BREATHING, RE_LETTER, RE_BREATHING, RE_DIAERESIS,
           RE_ACCENT, RE_IOTA, RE_DIAERESIS]],
-      [/^(\u0022)(?=[\d]+)?/, [RE_BAREQUOTE]]
+      [/^(\u0022)(?=[\d]+)?/, [RE_BAREQUOTE]],
+      [/^([\s\t\r\n\.\,\:])/, [RE_PASSTHRU]]
     ],
 
     // Components of diacritical flag
@@ -86,16 +88,19 @@
       'y': 'ψ',
       'v': 'ϝ',
       'w': {},
-      ';': {0: '\u037e'},
+      '.': '.',
+      ',': ',',
+      ':': ':',
+      '-': '\u2010', // unicode hyphen
+      '_': '\u2014', // em-dash
+      ';': {0: '\u037e'}, // Greek question mark
       '"': {0: '"'},
-      "'": {0: '\u2019'}
+      "'": '\u2019'
     },
-    dontconvert = /^([:,’‘\.\s])/,
 
     methods = {
       init: function (options) {
         var x = 1;
-        // console.log('Init!');
         return this.each(function () {
           var lmnt = $(this); //.betacode2utf8(options);
             // lmnt.html(lmnt.findBetaCode());
@@ -108,24 +113,30 @@
         var lmnt = this;
         lmnt.contents().each(function (i, n) {
           if (n.nodeType === 3) {
-            n.data = methods._atoms(n.data);
-            // n.data = checkSigmas(findAtoms(n.data));
+            try {
+              n.data = methods._postprocess(methods._atoms(n.data));
+            } catch (e) {
+              console.log(e.message + ' in ' + n.data);
+            }
           } else {
             $(n).betacode2utf8('convert');
           }
-        });
+        });          
       },
 
       _atoms: function (betacode) {
         var match = null,
-          greek = '',
-          pre = '';
+          greek = '';
+        
+        if (!betacode) {
+          return '';
+        }
 
         $.each(regexes, function (i, re) {
           match = re[0].exec(betacode);
-          // console.log(match);
           if (match) {
             var is_capital = false,
+              passthru = false,
               diacrits = 0,
               letter;
 
@@ -150,10 +161,16 @@
                 diacrits |= BREATHINGS[match[i + 1]];
               } else if (cat === RE_BAREQUOTE) {
                 letter = match[i + 1];
+              } else if (cat === RE_PASSTHRU) {
+                greek = match[i+1];
               } else {
                 diacrits = undefined;
               }
             });
+
+            if (passthru) {
+              return false;
+            }
 
             if (alphabet.hasOwnProperty(letter)) {
               if (alphabet[letter].hasOwnProperty(diacrits)) {
@@ -170,22 +187,15 @@
         });
 
         if (match === null) {
-          match = dontconvert.exec(betacode);
-          if (match) {
-            greek = match[0];
-          } else {
-            return greek;
-          }
+          $.error('Invalid character \"' + betacode[0] + '\"' )
         }
 
-        pre = betacode.substring(0, match.index);
-        if (pre.length) {
-          pre = '｢' + pre + '｣';
-        }
-
-        return pre + greek +
+        return greek +
           methods._atoms(betacode.substring(match.index + match[0].length));
+      },
 
+      _postprocess: function (greek) {
+        return greek.replace(/\u03c3([\s\.,;:]+)/g, "\u03c2$1");
       }
     };
 
