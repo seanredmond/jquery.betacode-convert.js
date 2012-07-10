@@ -146,7 +146,7 @@
                   is_capital = true;
                 }
               } else if (cat === RE_LETTER) {
-                letter = match[i + 1];
+                letter = match[i + 1].toLowerCase();
               } else if (cat === RE_IOTA) {
                 if (typeof match[i + 1] !== 'undefined') {
                   diacrits |= IOTA_SUB;
@@ -160,9 +160,9 @@
               } else if (cat === RE_BREATHING) {
                 diacrits |= BREATHINGS[match[i + 1]];
               } else if (cat === RE_BAREQUOTE) {
-                letter = match[i + 1];
+                letter = match[i + 1].toLowerCase();
               } else if (cat === RE_PASSTHRU) {
-                greek = match[i+1];
+                greek = match[i+1].toLowerCase();
               } else {
                 diacrits = undefined;
               }
