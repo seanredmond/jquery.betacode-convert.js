@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Betacode Coversion Tests</title>
+
+	<link rel="stylesheet" href="qunit.css" />
+	<script src="qunit.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>	
+	<script src="../jquery.betacode-convert.js"></script>
+	<script>
+	test("Letters without diacriticals", function() {
+		var greek = $('#lc-no-diacriticals');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "αβγδεζηθικλμν ξοπρστυφχψϝω");
+	});
+	test("Uppercase Letters without diacriticals", function() {
+		var greek = $('#uc-no-diacriticals');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "ΑΒΓΔΕΖΗΘΙΚΛΜΝ ΞΟΠΡΣΤΥΦΧΨϜΩ");
+	});
+	</script>
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture">
+		<div>
+			<p id="lc-no-diacriticals">abgdezhqiklmn coprstufxyvw</p>
+		</div>
+
+		<div>
+			<p id="uc-no-diacriticals">*a*b*g*d*e*z*h*q*i*k*l*m*n *c*o*p*r*s*t*u*f*x*y*v*w</p>
+		</div>
+	</div>
+</body>
+</html>
