@@ -273,8 +273,6 @@
   alphabet.i[BR_ROUGH | ACC_CIRC] = '\u1f37';
   alphabet.i[ACC_GRAVE] = '\u1f76';
   alphabet.i[ACC_ACUTE] = '\u1f77';
-  alphabet.i[BR_SMOOTH | IOTA_SUB] = '\u1f80';
-  alphabet.i[BR_ROUGH | IOTA_SUB] = '\u1f81';
   alphabet.i[BREVE] = '\u1fd0';
   alphabet.i[MACRON] = '\u1fd1';
   alphabet.i[ACC_GRAVE | DIAERESIS] = '\u1fd2';
