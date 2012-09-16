@@ -14,10 +14,17 @@
 		greek.betacode2utf8('convert');
 		equal(greek.text(), "αβγδεζηθικλμν ξοπρστυφχψϝω");
 	});
+	
 	test("Uppercase Letters without diacriticals", function() {
 		var greek = $('#uc-no-diacriticals');
 		greek.betacode2utf8('convert');
 		equal(greek.text(), "ΑΒΓΔΕΖΗΘΙΚΛΜΝ ΞΟΠΡΣΤΥΦΧΨϜΩ");
+	});
+
+	test("Alphas", function() {
+		var greek = $('#alphas');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "ἀ ἁ ά ὰ ᾶ ἄ ἂ ἆ ἅ ἃ ἇ ᾳ ᾀ ᾁ ᾴ ᾲ ᾷ ᾄ ᾂ ᾆ ᾅ ᾃ ᾇ");
 	});
 	</script>
 </head>
@@ -31,6 +38,8 @@
 		<div>
 			<p id="uc-no-diacriticals">*a*b*g*d*e*z*h*q*i*k*l*m*n *c*o*p*r*s*t*u*f*x*y*v*w</p>
 		</div>
+		
+		<p id="alphas">a) a( a/ a\ a= a)/ a)\ a)= a(/ a(\ a(= a| a)| a(| a/| a\| a=| a)/| a)\| a)=| a(/| a(\| a(=|</p>
 	</div>
 </body>
 </html>
