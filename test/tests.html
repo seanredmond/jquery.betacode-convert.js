@@ -21,11 +21,114 @@
 		equal(greek.text(), "ΑΒΓΔΕΖΗΘΙΚΛΜΝ ΞΟΠΡΣΤΥΦΧΨϜΩ");
 	});
 
-	test("Alphas", function() {
-		var greek = $('#alphas');
+	test("Lowercase alphas", function() {
+		var greek = $('#alphas-lc');
 		greek.betacode2utf8('convert');
 		equal(greek.text(), "ἀ ἁ ά ὰ ᾶ ἄ ἂ ἆ ἅ ἃ ἇ ᾳ ᾀ ᾁ ᾴ ᾲ ᾷ ᾄ ᾂ ᾆ ᾅ ᾃ ᾇ");
 	});
+
+	test("Uppercase alphas", function() {
+		var greek = $('#alphas-uc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "Ἀ Ἁ Ά Ὰ Α͂ Ἄ Ἂ Ἆ Ἅ Ἃ Ἇ ΑΙ ἈΙ ἉΙ ΆΙ ᾺΙ Α͂Ι ἌΙ ἊΙ ἎΙ ἍΙ ἋΙ ἏΙ");
+	});
+
+	test("Lowercase epsilons", function() {
+		var greek = $('#epsilons-lc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "ἐ ἑ έ ὲ ἔ ἒ ἕ ἓ");
+	});
+
+	test("Uppercase epsilons", function() {
+		var greek = $('#epsilons-uc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "Ἐ Ἑ Έ Ὲ Ἔ Ἒ Ἕ Ἓ");
+	});
+
+	test("Impossible epsilon combinations", function() {
+		var greek = $('#epsilons-impossible');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "⟦e=⟧ ⟦e)=⟧ ⟦e(=⟧ ⟦e=|⟧ ⟦e)=|⟧ ⟦e(=|⟧ ⟦e|⟧ ⟦e)|⟧ ⟦e(|⟧ ⟦e/|⟧ ⟦e\\|⟧ ⟦e)/|⟧ ⟦e)\\|⟧ ⟦e(/|⟧ ⟦e(\\|⟧");
+	});
+
+	test("Lowercase etas", function() {
+		var greek = $('#etas-lc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "ἠ ἡ ή ὴ ῆ ἤ ἢ ἦ ἥ ἣ ἧ ῃ ᾐ ᾑ ῄ ῂ ῇ ᾔ ᾒ ᾖ ᾕ ᾓ ᾗ");
+	});
+
+	test("Uppercase etas", function() {
+		var greek = $('#etas-uc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "Ἠ Ἡ Ή Ὴ Η͂ Ἤ Ἢ Ἦ Ἥ Ἣ Ἧ ΗΙ ἨΙ ἩΙ ΉΙ ῊΙ Η͂Ι ἬΙ ἪΙ ἮΙ ἭΙ ἫΙ ἯΙ");
+	});
+
+	test("Lowercase iotas", function() {
+		var greek = $('#iotas-lc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "ἰ ἱ ί ὶ ῖ ἴ ἲ ἶ ἵ ἳ ἷ");
+	});
+
+	test("Uppercase iotas", function() {
+		var greek = $('#iotas-uc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "Ἰ Ἱ Ί Ὶ Ι͂ Ἴ Ἲ Ἶ Ἵ Ἳ Ἷ");
+	});
+
+	test("Impossible iota combinations", function() {
+		var greek = $('#iotas-impossible');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "⟦i|⟧ ⟦i)|⟧ ⟦i(|⟧ ⟦i/|⟧ ⟦i\\|⟧ ⟦i=|⟧ ⟦i)/|⟧ ⟦i)\\|⟧ ⟦i)=|⟧ ⟦i(/|⟧ ⟦i(\\|⟧ ⟦i(=|⟧");
+	});
+
+	test("Lowercase omicrons", function() {
+		var greek = $('#omicrons-lc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "ὀ ὁ ό ὸ ὄ ὂ ὅ ὃ");
+	});
+
+	test("Uppercase omicrons", function() {
+		var greek = $('#omicrons-uc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "Ὀ Ὁ Ό Ὸ Ὄ Ὂ Ὅ Ὃ");
+	});
+
+	test("Impossible omicron combinations", function() {
+		var greek = $('#omicrons-impossible');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "⟦o=⟧ ⟦o)=⟧ ⟦o(=⟧ ⟦o|⟧ ⟦o)|⟧ ⟦o(|⟧ ⟦o/|⟧ ⟦o\\|⟧ ⟦o=|⟧ ⟦o)/|⟧ ⟦o)\\|⟧ ⟦o)=|⟧ ⟦o(/|⟧ ⟦o(\\|⟧ ⟦o(=|⟧");
+	});
+
+	test("Lowercase upsilons", function() {
+		var greek = $('#upsilons-lc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "ὐ ὑ ύ ὺ ῦ ὔ ὒ ὖ ὕ ὓ ὗ");
+	});
+
+	test("Uppercase upsilons", function() {
+		var greek = $('#upsilons-uc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "Ὑ Ύ Ὺ Ὕ Ὓ Ὗ");
+	});
+
+	test("Impossible upsilon combinations", function() {
+		var greek = $('#upsilons-impossible');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "⟦u|⟧ ⟦u)|⟧ ⟦u(|⟧ ⟦u/|⟧ ⟦u\\|⟧ ⟦u=|⟧ ⟦u)/|⟧ ⟦u)\\|⟧ ⟦u)=|⟧ ⟦u(/|⟧ ⟦u(\\|⟧ ⟦u(=|⟧ ⟦*u)⟧ ⟦*u=⟧ ⟦*u)/⟧ ⟦*u)\\⟧ ⟦*u)=⟧");
+	});
+
+	test("Lowercase omegas", function() {
+		var greek = $('#omegas-lc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "ὠ ὡ ώ ὼ ῶ ὤ ὢ ὦ ὥ ὣ ὧ ῳ ᾠ ᾡ ῴ ῲ ῷ ᾤ ᾢ ᾦ ᾥ ᾣ ᾧ");
+	});
+
+	test("Uppercase omegas", function() {
+		var greek = $('#omegas-uc');
+		greek.betacode2utf8('convert');
+		equal(greek.text(), "Ὠ Ὡ Ώ Ὼ Ω͂ Ὤ Ὢ Ὦ Ὥ Ὣ Ὧ ΩΙ ὨΙ ὩΙ ΏΙ ῺΙ Ω͂Ι ὬΙ ὪΙ ὮΙ ὭΙ ὫΙ ὯΙ");
+	});
+
 	</script>
 </head>
 <body>
@@ -39,7 +142,60 @@
 			<p id="uc-no-diacriticals">*a*b*g*d*e*z*h*q*i*k*l*m*n *c*o*p*r*s*t*u*f*x*y*v*w</p>
 		</div>
 		
-		<p id="alphas">a) a( a/ a\ a= a)/ a)\ a)= a(/ a(\ a(= a| a)| a(| a/| a\| a=| a)/| a)\| a)=| a(/| a(\| a(=|</p>
+		<p id="alphas-lc">a) a( a/ a\ a= a)/ a)\ a)= a(/ a(\ a(= a| a)| a(| a/| a\| a=| a)/| a)\| a)=| a(/| a(\| a(=|</p>
+
+		<p id="alphas-uc">*a) *a( *a/ *a\ *a= *a)/ *a)\ *a)= *a(/ *a(\ *a(= *a| *a)| *a(| *a/| *a\| *a=| *a)/| *a)\| *a)=| *a(/| *a(\| *a(=|</p>
+
+		<p id="epsilons-lc">e) e( e/ e\ e)/ e)\ e(/ e(\</p>
+
+		<p id="epsilons-uc">*e) *e( *e/ *e\ *e)/ *e)\ *e(/ *e(\</p>
+
+		<p id="epsilons-impossible">e= e)= e(= e=| e)=| e(=| e| e)| e(| e/| e\| e)/| e)\| e(/| e(\|</p>
+
+		<p id="etas-lc">h) h( h/ h\ h= h)/ h)\ h)= h(/ h(\ h(= h| h)| h(| h/| h\| h=| h)/| h)\| h)=| h(/| h(\| h(=|</p>
+
+		<p id="etas-uc">*h) *h( *h/ *h\ *h= *h)/ *h)\ *h)= *h(/ *h(\ *h(= *h| *h)| *h(| *h/| *h\| *h=| *h)/| *h)\| *h)=| *h(/| *h(\| *h(=|</p>
+
+		<p id="iotas-lc">i) i( i/ i\ i= i)/ i)\ i)= i(/ i(\ i(=</p>
+
+		<p id="iotas-uc">*i) *i( *i/ *i\ *i= *i)/ *i)\ *i)= *i(/ *i(\ *i(=</p>
+
+		<p id="iotas-impossible">i| i)| i(| i/| i\| i=| i)/| i)\| i)=| i(/| i(\| i(=|</p>
+
+		<p id="iota-comes-out-as-alpha">i)|</p>
+
+		<p id="omicrons-lc">o) o( o/ o\ o)/ o)\ o(/ o(\</p>
+
+		<p id="omicrons-uc">*o) *o( *o/ *o\ *o)/ *o)\ *o(/ *o(\</p>
+
+		<p id="omicrons-impossible">o= o)= o(= o| o)| o(| o/| o\| o=| o)/| o)\| o)=| o(/| o(\| o(=|</p>
+
+		<p id="upsilons-lc">u) u( u/ u\ u= u)/ u)\ u)= u(/ u(\ u(=</p>
+
+		<p id="upsilons-uc">*u( *u/ *u\ *u(/ *u(\ *u(=</p>
+
+		<p id="upsilons-impossible">u| u)| u(| u/| u\| u=| u)/| u)\| u)=| u(/| u(\| u(=| *u) *u= *u)/ *u)\ *u)=</p>
+
+		<p id="omegas-lc">w) w( w/ w\ w= w)/ w)\ w)= w(/ w(\ w(= w| w)| w(| w/| w\| w=| w)/| w)\| w)=| w(/| w(\| w(=|</p>
+
+		<p id="omegas-uc">*w) *w( *w/ *w\ *w= *w)/ *w)\ *w)= *w(/ *w(\ *w(= *w| *w)| *w(| *w/| *w\| *w=| *w)/| *w)\| *w)=| *w(/| *w(\| *w(=|</p>
+
+		<div id="republic">
+			*swkra/ths: w)= fi/le *fai=dre, poi= dh\ kai\ po/qen;
+
+*fai=dros: para\ *lusi/ou, w)= *sw/krates, tou= *kefa/lou, poreu/omai de\ pro\speri/paton e)/cw tei/xous: suxno\n ga\r e)kei= die/triya xro/non kaqh/menos e)ce(wqinou=. tw=| de\ sw=| kai\ e)mw=| e(tai/rw| peiqo/menos *)akoumenw=| kata\ta\s o(dou\s poiou=mai tou\s peripa/tous: fhsi\ ga\r a)kopwte/rous ei)=nai tw=ne)n toi=s dro/mois.
+
+*swkra/ths: kalw=s ga/r, w)= e(tai=re, le/gei. a)ta\r *lusi/as h)=n, w(s e)/oiken,e)n a)/stei.
+
+*fai=dros: nai/, par' *)epikra/tei, e)n th=|de th=| plhsi/on tou= *)olumpi/ouoi)ki/a| th=| *moruxi/a|.
+
+*swkra/ths: ti/s ou)=n dh\ h)=n h( diatribh/; h)\ dh=lon o(/ti tw=n lo/gwn u(ma=s*lusi/as ei(sti/a;
+
+*fai=dros: peu/sh|, ei)/ soi sxolh\ proi+o/nti a)kou/ein.
+
+*swkra/ths: ti/ de/; ou)k a)\n oi)/ei me kata\ *pi/ndaron "kai\ a)sxoli/asu(pe/rteron" pra=gma poih/sasqai to\ teh/n te kai\ *lusi/ou diatribh\na)kou=sai;</div>
+
+
 	</div>
 </body>
 </html>
