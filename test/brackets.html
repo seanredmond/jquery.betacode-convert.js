@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Betacode Coversion Tests</title>
+
+    <link rel="stylesheet" href="qunit.css" />
+    <script src="qunit.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
+    <script src="../jquery.betacode-convert.js"></script>
+    <script>
+
+    test("Brackets", function () {
+        var greek = $('#brackets');
+        greek.betacode2utf8('convert');
+        equal(greek.text(), "[ ] ( ) 〈 〉 { } ⟦ ⟧ ⌊ ⌋ ⌈ ⌉ ⌈ ⌋ ⌊ ⌉ ˙ ˙ ₍ ₎ → ← |: :|");
+
+    });
+
+    test("Brackets 2", function () {
+        var greek = $('#brackets2');
+        greek.betacode2utf8('convert');
+        equal(greek.text(), "⌊⌊ ⌋⌋ ⟪ ⟫ ⎧ ⎫ ⎪ ⎪ ⎨ ⎬ ⎩ ⎭ ⎛ ⎞ ⎜ ⎟ ⎝ ⎠");
+
+    });
+
+    test("Brackets 3", function () {
+        var greek = $('#brackets3');
+        greek.betacode2utf8('convert');
+        equal(greek.text(), "⸂ ⸃ ⸄ ⸅ ⸉ ⸊ ⸋ ⸌ / / // // ├ ┤ ┤ ├ ⊂ ⊃ (( ))");
+
+    });
+
+    test("Brackets & Letters", function () {
+        var greek = $('#brackets-letters');
+        greek.betacode2utf8('convert');
+        equal(greek.text(), "[α] ⌊⌊β⌋⌋ ⸂ξ⸃");
+
+    });
+    </script>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture">
+
+        <!-- Not sure how to do [13 ]13 -->
+        <div id="brackets">[ ] [1 ]1 [2 ]2 [3 ]3 [4 ]4 [5 ]5 [6 ]6 [7 ]7 [8 ]8 [9 ]9 [11 ]11 [12 ]12 [14 ]14</div>
+
+        <div id="brackets2">[17 ]17 [18 ]18 [20 ]20 [21 ]21 [22 ]22 [23 ]23 [30 ]30 [31 ]31 [32 ]32</div>
+
+        <div id="brackets3">[70 ]70 [71 ]71 [72 ]72 [73 ]73 [80 ]80 [81 ]81 [82 ]82 [83 ]83 [84 ]84 [85 ]85</div>
+
+        <div id="brackets-letters">[A] [17B]17 [70C]70</div>
+    </div>
+</body>
+</html>
