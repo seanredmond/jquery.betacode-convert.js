@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>jquery.betacode-convert.js</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Gentium+Book+Basic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <div class="header-container">
+            <header class="wrapper clearfix">
+                <h1 class="title">jquery.betacode-convert.js</h1>
+            </header>
+        </div>
+
+        <div class="main-container">
+            <div class="main wrapper clearfix">
+
+                <article>
+                    <header>
+                        <h1>What is it?</h1>
+
+                        <p>jquery.betacode-convert.js is jQuery plugin for converting Beta Code text into Unicode. <a href="http://www.tlg.uci.edu/encoding/">Beta Code</a> is a convenient, ASCII-only encoding for Classical Greek used by the <a href="http://www.tlg.uci.edu/">Thesaurus Linguae Graecae</a> and other projects. With this plugin you can use Beta Code directly in web pages.</p>
+
+                        <p>jquery.betacode-convert.js has evolved itself from an original <a href="https://github.com/seanredmond/Encoding-Converter">Perl</a> version of an online converter I created <a href="http://web.archive.org/web/19990117031405/http://www.nyu.edu/classes/latin2/greek_convert.html">sometime around 1998</a>.
+                    </header>
+
+                    <section>
+                        <h2>How to get it</h2>
+
+                        <ul>
+                            <li>
+                                Download <a href="https://github.com/seanredmond/jquery.betacode-convert.js/zipball/v1.0">Version 1.0</a>. Contains full (26K) and minified (6.6K) versions.
+                            </li>
+                            <li>
+                                <a href="https://github.com/seanredmond/jquery.betacode-convert.js">Fork the project</a> from GitHub.
+                            </li>
+                        </ul>
+
+                    </section>
+
+                    <section>
+                        <h2>How to use it</h2>
+
+                        <p>The plugin creates a <code>betacode2utf8</code> object with one method, <code>convert()</code>, which you can apply to any selector.
+
+                        <script src="https://gist.github.com/seanredmond/5885183.js"></script>
+
+                    </section>
+
+                    <section>
+                        <h2>Examples</h2>
+                            <p>This is the opening of Plato’s <i>Phaedrus</i>. First, in BetaCode:</p>
+
+                        <div class="example unconverted">
+                            <p>*swkra/ths: w)= fi/le *fai=dre, poi= dh\ kai\ po/qen;</p>
+
+                            <p>*fai=dros: para\ *lusi/ou, w)= *sw/krates, tou= *kefa/lou, poreu/omai de\ pro\s peri/paton e)/cw tei/xous: suxno\n ga\r e)kei= die/triya xro/non kaqh/menos e)c e(wqinou=. tw=| de\ sw=| kai\ e)mw=| e(tai/rw| peiqo/menos *)akoumenw=| kata\ ta\s o(dou\s poiou=mai tou\s peripa/tous: fhsi\ ga\r a)kopwte/rous ei)=nai tw=n e)n toi=s dro/mois.</p>
+
+                            <p>*swkra/ths: kalw=s ga/r, w)= e(tai=re, le/gei. a)ta\r *lusi/as h)=n, w(s e)/oiken, e)n a)/stei.</p>
+
+                            <p>*fai=dros: nai/, par' *)epikra/tei, e)n th=|de th=| plhsi/on tou= *)olumpi/ou 
+                            oi)ki/a| th=| *moruxi/a|.</p>
+
+                            <p>*swkra/ths: ti/s ou)=n dh\ h)=n h( diatribh/; h)\ dh=lon o(/ti tw=n lo/gwn u(ma=s *lusi/as ei(sti/a;</p>
+
+                            <p>*fai=dros: peu/sh|, ei)/ soi sxolh\ proi+o/nti a)kou/ein.</p>
+
+                            <p>*swkra/ths: ti/ de/; ou)k a)\n oi)/ei me kata\ *pi/ndaron "kai\ a)sxoli/as 
+                            u(pe/rteron" pra=gma poih/sasqai to\ teh/n te kai\ *lusi/ou diatribh\n a)kou=sai;</p>
+                        </div>
+
+                        <p>Next, converted to Unicode by jquery.betacode-convert.js</p>
+
+                        <div class="betacode example converted">
+                            <p>*swkra/ths: w)= fi/le *fai=dre, poi= dh\ kai\ po/qen;</p>
+
+                            <p>*fai=dros: para\ *lusi/ou, w)= *sw/krates, tou= *kefa/lou, poreu/omai de\ pro\s peri/paton e)/cw tei/xous: suxno\n ga\r e)kei= die/triya xro/non kaqh/menos e)c e(wqinou=. tw=| de\ sw=| kai\ e)mw=| e(tai/rw| peiqo/menos *)akoumenw=| kata\ ta\s o(dou\s poiou=mai tou\s peripa/tous: fhsi\ ga\r a)kopwte/rous ei)=nai tw=n e)n toi=s dro/mois.</p>
+
+                            <p>*swkra/ths: kalw=s ga/r, w)= e(tai=re, le/gei. a)ta\r *lusi/as h)=n, w(s e)/oiken, e)n a)/stei.</p>
+
+                            <p>*fai=dros: nai/, par' *)epikra/tei, e)n th=|de th=| plhsi/on tou= *)olumpi/ou 
+                            oi)ki/a| th=| *moruxi/a|.</p>
+
+                            <p>*swkra/ths: ti/s ou)=n dh\ h)=n h( diatribh/; h)\ dh=lon o(/ti tw=n lo/gwn u(ma=s *lusi/as ei(sti/a;</p>
+
+                            <p>*fai=dros: peu/sh|, ei)/ soi sxolh\ proi+o/nti a)kou/ein.</p>
+
+                            <p>*swkra/ths: ti/ de/; ou)k a)\n oi)/ei me kata\ *pi/ndaron "kai\ a)sxoli/as
+                            u(pe/rteron" pra=gma poih/sasqai to\ teh/n te kai\ *lusi/ou diatribh\n a)kou=sai;</p>
+                        </div>
+
+                         </p>
+
+                        <p>jquery.betacode-convert.js preserves markup, so you can apply it to a parent element without breaking the formatting of its children (Sappho, fr. 9).</p>
+
+
+                        <div class="example">
+
+                            <div class="epigram">
+                                <div class="line">*AI)Q' E)/GO XRUSOSTE/FAN' <b>*)AFRO/DITA</b>,</div>
+                                <div class="line">TO/NDE TO\N <i>PA/LON</i> LACO/HN.</div>
+                            </div>
+
+
+                            <div class="betacode epigram converted">
+                                <div class="line">*AI)Q' E)/GO XRUSOSTE/FAN' <b>*)AFRO/DITA</b>,</div>
+                                <div class="line">TO/NDE TO\N <i>PA/LON</i> LACO/HN.</div>
+                            </div>
+                        </div>
+
+                        <p>Important! This plugin depends on the content to be converted already being in utf8. If you set the encoding of your webpages to anything else, it will almost certainly not work!</p>
+                    </section>
+
+                    <section>
+                        <h2>Trouble?</h2>
+
+                        <p>If you have problems with jquery.betacode-convert.js or find any bugs, please <a href="https://github.com/seanredmond/jquery.betacode-convert.js/issues">open an issue</a> on GitHub.</p>
+
+                    </section>
+
+                    <footer>
+                        <h3>Author</h3>
+                        <p>Sean Redmond. Find me on <a href="https://github.com/seanredmond">Github</a>, <a href="https://twitter.com/rdmond">Twitter</a>, <a href="rdmond.tumblr.com">Tumblr</a>.</p>
+                    </footer>
+                </article>
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="wrapper">
+                <h3>footer</h3>
+            </footer>
+        </div>
+
+        <a href="https://github.com/seanredmond/jquery.betacode-convert.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.1.min.js"><\/script>')</script>
+        <script src="js/jquery.betacode-convert.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-574318-6'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>
