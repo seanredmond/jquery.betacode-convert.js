@@ -186,11 +186,7 @@
         var lmnt = this;
         lmnt.contents().each(function (i, n) {
           if (n.nodeType === 3) {
-            try {
-              n.data = methods._postprocess(methods._atoms(n.data));
-            } catch (e) {
-              console.log(e.message + ' in ' + n.data);
-            }
+            n.data = methods._postprocess(methods._atoms(n.data));
           } else {
             $(n).betacode2utf8('convert');
           }
