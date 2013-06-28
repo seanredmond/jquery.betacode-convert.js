@@ -421,6 +421,6 @@
       return methods.init.apply(this, arguments);
     }
 
-    $.error('Method ' +  method + ' does not exist on jQuery.tooltip');
+    $.error('Method ' +  method + ' does not exist on jquery.betacode-convert');
   };
 }(jQuery));
